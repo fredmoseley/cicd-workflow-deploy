@@ -83,9 +83,9 @@ jobs:
         gcloud info
         
     - name: Deploy to Cloud Run
-      run: gcloud run deploy ${{ env.APPLICATION_NAME }} --image=${{ secrets.GCP_HOST_NAME }}/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_DOCKER_REPO_ID }}/${{ env.APPLICATION_NAME }}:latest --platform=managed --allow-unauthenticated
+      run: gcloud run deploy ${{ env.APPLICATION_NAME }} --image=${{ secrets.GCP_HOST_NAME }}/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_DOCKER_REPO_ID }}/${{ env.APPLICATION_NAME }}:latest --region=${{ secrets.GCP_REGION }} --platform=managed --allow-unauthenticated
 
     - name: Test deployment
       run: |
-        DEPLOY_URL=$(gcloud run services describe app2 --platform=managed --region=us-central1 | grep https)
+        DEPLOY_URL=$(gcloud run services describe app2 --platform=managed --region=${{ secrets.GCP_REGION }} | grep https)
         curl -sL --max-time 300 -o /dev/null -w "%{http_code}" $DEPLOY_URL | grep 200 || exit 1
