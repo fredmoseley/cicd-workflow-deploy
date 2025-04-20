@@ -86,8 +86,7 @@ jobs:
       run: gcloud run deploy ${{ env.APPLICATION_NAME }} \ 
         --image=${{ secrets.GCP_HOST_NAME }}/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_DOCKER_REPO_ID }}/${{ env.APPLICATION_NAME }}:latest \
         --region=${{ secrets.GCP_REGION }} --platform=managed \
-        --allow-unauthenticated \
-        --service-account=${{ secrets.GCP_SERVICE_ACCOUNT }} \
+        --allow-unauthenticated
     
 
     - name: Test deployment
