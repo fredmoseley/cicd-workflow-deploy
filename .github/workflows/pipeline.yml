@@ -83,7 +83,7 @@ jobs:
         gcloud info
         
     - name: Deploy to Cloud Run
-      run: gcloud run deploy ${{ env.APPLICATION_NAME }} \ 
+      run: gcloud run deploy ${{ env.APPLICATION_NAME }} \
         --image=${{ secrets.GCP_HOST_NAME }}/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.GCP_DOCKER_REPO_ID }}/${{ env.APPLICATION_NAME }}:latest \
         --region=${{ secrets.GCP_REGION }} --platform=managed \
         --allow-unauthenticated
