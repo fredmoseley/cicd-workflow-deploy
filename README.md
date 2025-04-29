@@ -1,4 +1,4 @@
-# Buid Status Badge: ![] https://github.com/fredmoseley/cicd-worflow-deploy/workflows/pipeline.yml/badge.svg
+# Buid Status Badge: ![] https://github.com/fredmoseley/cicd-workflow-deploy/workflows/pipeline.yml/badge.svg
 
 # Use Case: CI/CD
 Demonstrating continuous integration and deployment to Google Cloud with GitHub Actions
